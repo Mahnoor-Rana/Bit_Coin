@@ -1,0 +1,36 @@
+import pandas as pd
+import numpy as np 
+import matplotlib.pyplot as plt 
+import bar_chart_race as bcr
+
+data= pd.read_csv('coin_Bitcoin.csv')
+
+data.head()
+
+
+data.shape
+
+data.isnull().sum()
+
+data = data.reindex(columns = ['Date', 'High'])
+data
+
+final_data = data.pivot_table('High', ['Date'])
+
+final_data
+
+new_data=final_data[::30]
+new_data.head()
+
+new_data.shape
+
+
+# Creating Chart
+bcr.bar_chart_race(df=new_data, bar_size=0.3)
+
+
+
+
+
+
+
